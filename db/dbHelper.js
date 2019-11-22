@@ -27,5 +27,14 @@ module.exports = dbHelper = {
                 callback(null, data)
             }
         })
+    },
+    updateData: (req, callback) => {
+        db.query(`update grocerylists set groceryList="${req.body.grocerylist}", quantity="${req.body.quantity}" where id="${req.params.id}";`, (err, data) => {
+            if (err) {
+                callback(err)
+            } else {
+                callback(null, data)
+            }
+        })
     }
 }
